@@ -1,0 +1,10 @@
+.login-card {
+    background: linear-gradient(#0a0f11, #443f3e);
+    .title {
+        color: #fff;
+        font-weight: 500;
+    }
+    input::placeholder{
+        color: rgb(131, 98, 98);
+    }
+}

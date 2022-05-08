@@ -1,0 +1,202 @@
+<div
+  class="page-header"
+  data-parallax="true"
+  style="background-image: url('./assets/img/lead-form-bg.jpg')"
+>
+  <div class="filter"></div>
+  <div class="container">
+    <div class="motto text-center">
+      <h1>Fabrication Exemple</h1>
+      <h3>un leader mondial du mobilier industriel ergonomique</h3>
+      <a href="#paper-kit" class="btn mt-3 btn-danger btn-round"
+        >Commençons à concevoir</a
+      >
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mr-auto ml-auto">
+          <h2 class="title">Parlons produit</h2>
+          <h5 class="description">
+            Notre approche ainsi que la conception de nos mobiliers d'atelier et
+            de nos postes de travail commence toujours par l'ecoute de la
+            personne en charge du travail à réaliser. L'ergonomie, la
+            fonctionnalité et l'éfficacité sont nos axes de réflexion
+            permanents. Quand vous choisissez TRESTON vous optez pour une
+            solution durable, de qualité et évolutive. Nous sommes là pour vous
+            offrir un service de proximitè mais à l'échelle internationale que
+            ce soit pour la vente, le support technique ou un service clef en
+            main.
+          </h5>
+          <br />
+          <a href="#paper-kit" class="btn btn-danger btn-round">Voir Deatils</a>
+        </div>
+      </div>
+      <br /><br />
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info">
+            <div class="icon icon-danger">
+              <i class="nc-icon nc-album-2"></i>
+            </div>
+            <div class="description">
+              <h4 class="info-title">Belle galerie</h4>
+              <p class="description">
+                Passez votre temps à générer de nouvelles idées. Nous sommes là
+                pour les réaliser.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info">
+            <div class="icon icon-danger">
+              <i class="nc-icon nc-bulb-63"></i>
+            </div>
+            <div class="description">
+              <h4 class="info-title">Nouvelles idées</h4>
+              <p>
+                Plus grand, mais nettement plus fin. Plus puissant, mais
+                remarquablement d'efficacité énergétique.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info">
+            <div class="icon icon-danger">
+              <i class="nc-icon nc-chart-bar-32"></i>
+            </div>
+            <div class="description">
+              <h4 class="info-title">Statistiques</h4>
+              <p>
+                Choose from a veriety of many colors resembling sugar paper
+                pastels.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info">
+            <div class="icon icon-danger">
+              <i class="nc-icon nc-sun-fog-29"></i>
+            </div>
+            <div class="description">
+              <h4 class="info-title">Un design charmant</h4>
+              <p>
+                Trouvez des articles uniques et faits à la main liés à de
+                délicieux designs. directement auprès de nos vendeurs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-dark" id="contact">
+    <div class="container page-carousel">
+      <div class="row">
+        <div class="col-md-8 mr-auto ml-auto">
+          <h2 class="text-center">Rester en contact ?</h2>
+          <form class="contact-form">
+            <div class="row">
+              <div class="col-md-6">
+                <label>Prénom*</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="nc-icon nc-single-02"></i
+                    ></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Prénom" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label>Nom*</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="nc-icon nc-single-02"></i
+                    ></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Nom" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>Société*</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="nc-icon nc-shop"></i
+                    ></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Société" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label>Pays*</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="nc-icon nc-pin-3"></i></span>
+                  </div>
+                  <select class="form-control">
+                    <option value="">Choisir votre pays</option>
+                    <option *ngFor="let country of countryList" [value]="country.code">{{country.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label>E-mail*</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="nc-icon nc-email-85"></i
+                    ></span>
+                  </div>
+                  <input type="email" class="form-control" placeholder="E-mail" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label>Code postal*</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="nc-icon nc-badge"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Code postal"
+                  />
+                </div>
+              </div>
+            </div>
+            <label>Nous envoyer un message*</label>
+            <textarea
+              class="form-control"
+              rows="4"
+              placeholder="Dites-nous ce que vous pensez..."
+            ></textarea>
+            <div class="row">
+              <div class="col-md-4 mr-auto ml-auto">
+                <button class="btn btn-danger btn-lg btn-fill">
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
