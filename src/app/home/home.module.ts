@@ -8,8 +8,10 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { SignupComponent } from 'app/home/signup/signup.component';
 import { DesktopComponent } from './desktop/desktop.component';
+import { SubmitBtnComponent } from 'app/shared/submit-btn/submit-btn.component';
 
 @NgModule({
+
   imports: [
     CommonModule,
     FormsModule,
@@ -19,7 +21,7 @@ import { DesktopComponent } from './desktop/desktop.component';
     ReactiveFormsModule,
     RouterModule
   ],
-  declarations: [HomeComponent, SignupComponent, DesktopComponent],
+  declarations: [HomeComponent, SignupComponent, DesktopComponent, SubmitBtnComponent],
   exports: [HomeComponent],
 })
 export class HomeModule {}

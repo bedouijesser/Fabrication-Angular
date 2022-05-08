@@ -10,13 +10,15 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
+import { HttpClientModule } from '@angular/common/http';
+import { SubmitBtnComponent } from './shared/submit-btn/submit-btn.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { HomeModule } from './home/home.module';
     RouterModule,
     HomeModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

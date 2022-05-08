@@ -1,5 +1,5 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { Location } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,25 +7,26 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('navbar', { static: true }) navElement: ElementRef;
   private toggleButton: any;
   private sidebarVisible: boolean;
   private currentRoute: string;
+  isTransparent: boolean;
+
   constructor(public location: Location, private element: ElementRef) {
     this.sidebarVisible = false;
-    this.currentRoute= this.location.prepareExternalUrl(this.location.path())
+    this.currentRoute = this.location.prepareExternalUrl(this.location.path());
     this.currentRoute = this.currentRoute.charAt(0) === '#' ? this.currentRoute.slice(1) : this.currentRoute;
-
   }
 
   ngOnInit() {
     const navbar: HTMLElement = this.element.nativeElement;
-
+    this.isTransparent = this.currentRoute !== '/desktop';
     this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
   }
-  isDesktop() {
-    this.currentRoute
+  isNavTransparent() {
+    return !this.location.isCurrentPathEqualTo('/desktop');
   }
-
   sidebarOpen() {
     const toggleButton = this.toggleButton;
     const html = document.getElementsByTagName('html')[0];
@@ -45,8 +46,6 @@ export class NavbarComponent implements OnInit {
     html.classList.remove('nav-open');
   }
   sidebarToggle() {
-    // const toggleButton = this.toggleButton;
-    // const body = document.getElementsByTagName('body')[0];
     if (this.sidebarVisible === false) {
       this.sidebarOpen();
     }
