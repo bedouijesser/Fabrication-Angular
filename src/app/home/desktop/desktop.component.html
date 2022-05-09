@@ -1,18 +1,147 @@
 <div
   class="page-header"
+  *ngIf="isEmailInvalid; else emailValid"
   data-parallax="true"
   style="background-image: url('./assets/img/3d-model-bg.jpg')"
 >
   <div class="filter"></div>
   <div class="container">
     <div class="motto text-center">
-      <h1>Commanceant</h1>
-      <h3>un leader mondial du mobilier industriel ergonomique</h3>
-      <a routerLink="/desktop" class="btn mt-3 btn-danger btn-round"
-        >Commençons à concevoir</a
-      >
+      <h1>Commençant</h1>
+      <h3>Veuillez introduire votre email</h3>
+      <div class="mt-5 d-flex justify-content-center">
+        <div class="input-group col-md-6">
+          <input [(ngModel)]="emailInputFiled" type="email" class="form-control" placeholder="Email" />
+        </div>
+      </div>
+      <button (click)="submitEmail()" type="submit" class="btn btn-danger btn-md btn-fill mt-5">Valider</button>
     </div>
   </div>
 </div>
-  <p>desktop works!</p>
 
+<ng-template #emailValid>
+  <div class="mx-5 mt-100 desktop-form">
+    <p>
+      Utilisant l'email: <span>{{ emailInputFiled }}</span>
+      <button (click)="cancelEmail()" class="btn btn-sm ml-3">changer</button>
+    </p>
+    <nav ngbNav #nav="ngbNav" class="nav-tabs">
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Choisir un poste de travail</a>
+        <ng-template ngbNavContent class="col-md-6">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card card-plain" (click)="referenceChosen(nav)">
+                <div class="card-header">
+                  <h4 class="card-title">
+                    <span>Poste de travail</span>
+                  </h4>
+                </div>
+                <div class="card-body">
+                  <p>
+                    Table Réglable en hauteur pour des activités d'assemblage léger ou de poste de contrôle. Max 500 kg.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Tailles et matériels</a>
+        <ng-template ngbNavContent>
+          <div class="container">
+            <div class="row">
+              <form [formGroup]="taillesMatFormGroup">
+                <div>
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="tailleType"
+                      formControlName="type"
+                      id="exampleRadios1"
+                      value="500"
+                      checked=""
+                    />
+                    Standard 670-1120 <span class="badge badge-secondary">500</span>
+                    <span class="form-check-sign"></span>
+                  </label>
+                </div>
+                <div>
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="tailleType"
+                      formControlName="type"
+                      id="exampleRadios2"
+                      value="400"
+                      checked=""
+                    />
+                    Motorisé 700-1100 <span class="badge badge-secondary">400</span>
+                    <span class="form-check-sign"></span>
+                  </label>
+                </div>
+                <div>
+                  <label class="form-check-label">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="tailleType"
+                      formControlName="type"
+                      id="exampleRadios2"
+                      value="200"
+                      checked=""
+                    />
+                    Manivelle 675-1025 <span class="badge badge-secondary">200</span>
+                    <span class="form-check-sign"></span>
+                  </label>
+                </div>
+                <div class="row">
+
+                  <span>Tailles disponibles</span>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="0">1000*600</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Cadres verticaux</a>
+        <ng-template ngbNavContent>
+          <p>
+            Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla
+            facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu,
+            congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices
+            et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus
+            faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci
+            varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac
+            lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.
+          </p>
+        </ng-template>
+      </ng-container>
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Accessoires</a>
+        <ng-template ngbNavContent>
+          <p>
+            Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla
+            facilisi. Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu,
+            congue et odio. Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices
+            et. Sed diam urna, egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus
+            faucibus nisl enim, nec tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci
+            varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac
+            lorem aliquet ultricies in eget neque. Phasellus nec tortor vel tellus pulvinar feugiat.
+          </p>
+        </ng-template>
+      </ng-container>
+    </nav>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</ng-template>

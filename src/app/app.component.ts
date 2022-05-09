@@ -2,7 +2,7 @@ import { DOCUMENT, Location } from "@angular/common";
 import {
   Component, ElementRef, Inject, OnInit, Renderer2, ViewChild
 } from "@angular/core";
-import { NavigationEnd, Router } from "@angular/router";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import "rxjs/add/operator/filter";
 import { Subscription } from "rxjs/Subscription";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     private router: Router,
+    private route: ActivatedRoute,
     @Inject(DOCUMENT) private document: any,
     private element: ElementRef,
     public location: Location
@@ -43,7 +44,9 @@ export class AppComponent implements OnInit {
         navbar.classList.remove("navbar-transparent");
       } else {
         // remove logic
-        navbar.classList.add("navbar-transparent");
+        console.log(this.location.path());
+
+        if (this.location.path() !== "/desktop") navbar.classList.add("navbar-transparent");
       }
     });
     var ua = window.navigator.userAgent;
@@ -61,10 +64,6 @@ export class AppComponent implements OnInit {
   removeFooter() {
     var route = this.location.prepareExternalUrl(this.location.path());
     route = route.slice(1);
-    if (route === "signup" || route === "nucleoicons") {
-      return false;
-    } else {
-      return true;
-    }
+    return route !== "signup";
   }
 }

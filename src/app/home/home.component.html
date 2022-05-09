@@ -85,7 +85,7 @@
       <div class="row">
         <div class="col-md-8 mr-auto ml-auto">
           <h2 class="text-center">Envoie-nous un message</h2>
-          <form (submit)="submitContactForm()" class="contact-form" [formGroup]="contactFormGroup">
+          <form class="contact-form" [formGroup]="contactFormGroup">
             <div class="row">
               <div class="col-md-6">
                 <label>Prénom*</label>
@@ -94,6 +94,14 @@
                     <span class="input-group-text"><i class="nc-icon nc-single-02"></i></span>
                   </div>
                   <input formControlName="firstName" type="text" class="form-control" placeholder="Prénom" />
+                  <div
+                    *ngIf="
+                      contactFormGroup.get('firstName').dirty && contactFormGroup.get('firstName').hasError('required')
+                    "
+                    class="form-control-feedback"
+                  >
+                    Sorry, that username's taken. Try another?
+                  </div>
                 </div>
               </div>
               <div class="col-md-6">
@@ -145,7 +153,12 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="nc-icon nc-badge"></i></span>
                   </div>
-                  <input pattern="[0-9]{4}" formControlName="postalCode" class="form-control" placeholder="Code postal" />
+                  <input
+                    pattern="[0-9]{4}"
+                    formControlName="postalCode"
+                    class="form-control"
+                    placeholder="Code postal"
+                  />
                 </div>
               </div>
             </div>

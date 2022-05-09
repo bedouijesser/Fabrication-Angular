@@ -16,7 +16,7 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start"
   },
   "dependencies": {
-    "@angular/animations": "11.0.4",
+    "@angular/animations": "^11.0.4",
     "@angular/common": "11.0.4",
     "@angular/compiler": "11.0.4",
     "@angular/core": "11.0.4",
@@ -32,6 +32,7 @@
     "jquery": "3.5.1",
     "jw-bootstrap-switch-ng2": "2.0.5",
     "ng2-nouislider": "1.8.2",
+    "ngx-toastr": "^11.0.0",
     "nouislider": "14.6.3",
     "popper.js": "1.16.1",
     "rxjs": "6.6.3",

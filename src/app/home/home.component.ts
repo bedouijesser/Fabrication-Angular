@@ -1,8 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbToastHeader } from '@ng-bootstrap/ng-bootstrap';
 import { HomeService } from 'app/services/home.service';
 import { SubmitButtonEvent } from 'app/shared/submit-btn/submtit-btn.model';
+import { ToastrService } from 'ngx-toastr';
+
 import COUNTRYLIST from 'assets/data/county.model';
 
 @Component({
@@ -16,7 +18,7 @@ export class HomeComponent implements OnInit {
   contactFormGroup: FormGroup;
   contactFormSubmitButtonEvent: SubmitButtonEvent;
 
-  constructor(private fb: FormBuilder, private homeService: HomeService) {}
+  constructor(private fb: FormBuilder, private homeService: HomeService, private toastr: ToastrService) {}
 
   isDisabled(date: NgbDateStruct, current: { month: number }) {
     return date.month !== current.month;
@@ -44,6 +46,11 @@ export class HomeComponent implements OnInit {
     });
   }
   submitContactForm() {
+    if (this.contactFormGroup.invalid) {
+      this.toastr.error("Veuillez verifier vos champs");
+      return;
+    }
+    if(this.contactFormGroup.get("email").valid) localStorage.setItem("email", this.contactFormGroup.get("email").value);
     this.homeService.submitButtonEventSubject.next("Loading");
       this.homeService.sendContactMessage(this.contactFormGroup.value).subscribe(
         (res) => {

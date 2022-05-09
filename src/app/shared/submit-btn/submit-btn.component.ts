@@ -29,6 +29,8 @@ export class SubmitBtnComponent implements OnInit {
   ngOnInit(): void {
 
     this.homeService.submitButtonEventSubject.subscribe(event => {
+      console.log(event);
+
       this.eventActionMap[event].bind(this)();
     })
   }
